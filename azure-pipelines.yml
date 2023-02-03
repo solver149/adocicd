@@ -14,19 +14,19 @@ stages:
     jobs:
       - job: build
         steps:
-          - echo 'stage build. job build. step 1'
+          - bash: echo 'stage build. job build. step 1'
   - stage: provision
     jobs:
       - job: build
         steps:
-          - echo 'stage build. job build. step 1'
+          - bash: echo 'stage build. job build. step 1'
   - stage: dev
     jobs:
       - job: build
         steps:
-          - echo 'stage build. job build. step 1'
+          - bash: echo 'stage build. job build. step 1'
   - stage: prod
     jobs:
       - job: build
         steps:
-          - echo 'stage build. job build. step 1'
+          - bash: echo 'stage build. job build. step 1'
