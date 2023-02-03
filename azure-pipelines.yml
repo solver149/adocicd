@@ -15,18 +15,18 @@ stages:
       - job: build
         steps:
           - bash: echo 'stage build. job build. step 1'
-  - stage: provision
-    jobs:
-      - job: build
-        steps:
-          - bash: echo 'stage build. job build. step 1'
-  - stage: dev
-    jobs:
-      - job: build
-        steps:
-          - bash: echo 'stage build. job build. step 1'
-  - stage: prod
-    jobs:
-      - job: build
-        steps:
-          - bash: echo 'stage build. job build. step 1'
+#  - stage: provision
+#    jobs:
+#      - job: build
+#        steps:
+#          - bash: echo 'stage build. job build. step 1'
+#  - stage: dev
+#    jobs:
+#      - job: build
+#        steps:
+#          - bash: echo 'stage build. job build. step 1'
+#  - stage: prod
+#    jobs:
+#      - job: build
+#        steps:
+#          - bash: echo 'stage build. job build. step 1'
