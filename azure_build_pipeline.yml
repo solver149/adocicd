@@ -12,9 +12,16 @@ pool:
 stages:
   - stage: build
     jobs:
-      - job: build
+      - job: build1
+        condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))
         steps:
-          - bash: echo 'stage build. job build. step 1'
+          - bash: echo 'stage build. job build1. step 1'
+      - job: build2
+        dependsOn: build1
+        condition: failed()
+        steps:
+          - bash: echo 'stage build. job build2. step 1'
+
 #  - stage: provision
 #    jobs:
 #      - job: build
