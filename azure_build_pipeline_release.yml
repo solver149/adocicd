@@ -1,0 +1,40 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- release/*
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+  - stage: build
+    jobs:
+      - job: build1
+        condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))
+        steps:
+          - bash: echo 'stage build. job build111111'
+      - job: build2
+        dependsOn: build1
+        condition: eq(dependencies.build1.result, 'Skipped')
+        steps:
+          - bash: echo 'stage build. job build222222'
+
+
+#  - stage: provision
+#    jobs:
+#      - job: build
+#        steps:
+#          - bash: echo 'stage build. job build. step 1'
+#  - stage: dev
+#    jobs:
+#      - job: build
+#        steps:
+#          - bash: echo 'stage build. job build. step 1'
+#  - stage: prod
+#    jobs:
+#      - job: build
+#        steps:
+#          - bash: echo 'stage build. job build. step 1'
