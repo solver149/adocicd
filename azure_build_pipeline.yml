@@ -18,7 +18,7 @@ stages:
           - bash: echo 'stage build. job build111111'
       - job: build2
         dependsOn: build1
-        condition: eq(dependencies.build.build1.result, 'Skipped')
+        condition: eq(dependencies.build1.result, 'Skipped')
         steps:
           - bash: echo 'stage build. job build222222'
 
