@@ -15,12 +15,12 @@ stages:
       - job: build1
         condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))
         steps:
-          - bash: echo 'stage build. job build1. step 1'
+          - bash: echo 'stage build. job build111111'
       - job: build2
         dependsOn: build1
-        condition: failed()
+        condition: eq(dependencies.build.build1.result, 'Skipped')
         steps:
-          - bash: echo 'stage build. job build2. step 1'
+          - bash: echo 'stage build. job build222222'
 
 
 #  - stage: provision
